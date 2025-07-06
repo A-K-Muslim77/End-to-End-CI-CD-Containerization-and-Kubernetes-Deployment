@@ -25,15 +25,15 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        working-directory: finch-frontend
+        working-directory: End-to-End CICD, Containerization, and Kubernetes Deployment/finch-frontend-main
 
       - name: Run Linter
         run: npm run lint
-        working-directory: finch-frontend
+        working-directory: End-to-End CICD, Containerization, and Kubernetes Deployment/finch-frontend-main
 
       - name: Run Tests
         run: npm test
-        working-directory: finch-frontend
+        working-directory: End-to-End CICD, Containerization, and Kubernetes Deployment/finch-frontend-main
 
   docker:
     needs: build-test

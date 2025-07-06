@@ -25,16 +25,14 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        working-directory: finch-backend
+        working-directory: End-to-End CICD, Containerization, and Kubernetes Deployment/finch-backend-main
 
       - name: Run Linter
         run: npm run lint
-        working-directory: finch-backend
-
+        working-directory: End-to-End CICD, Containerization, and Kubernetes Deployment/finch-backend-main
       - name: Run Tests
         run: npm test
-        working-directory: finch-backend
-
+        working-directory: End-to-End CICD, Containerization, and Kubernetes Deployment/finch-backend-main
   docker:
     needs: build-test
     runs-on: ubuntu-latest
