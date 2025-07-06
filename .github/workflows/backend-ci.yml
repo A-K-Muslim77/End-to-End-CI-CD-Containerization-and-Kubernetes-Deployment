@@ -10,6 +10,9 @@ env:
 jobs:
   build-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: End-to-End CICD, Containerization, and Kubernetes Deployment/finch-backend-main
 
     steps:
       - name: Checkout Code
@@ -35,6 +38,9 @@ jobs:
   docker:
     needs: build-test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: End-to-End CICD, Containerization, and Kubernetes Deployment/finch-backend-main
 
     steps:
       - name: Checkout Code
@@ -49,6 +55,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./finch-backend
+          file: ./finch-backend/Dockerfile
           push: true
           tags: ${{ env.IMAGE_NAME }}:latest
